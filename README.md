@@ -36,8 +36,8 @@ Some methods to sampling data points from a given distribution.
   * Box-Muller <br>
     上面介绍的对概率累积函数求逆变换的过程只适用于简单的分布，即那些可以求出来概率累积函数并且可以求出其逆变换的函数。然而大多数情况下，求概率累积函数需要进行复杂的积分操作，是不可积分的，比如高斯分布。那么如何对高斯分布进行采样呢，这里引入了对高斯分布进行操作的小技巧。引入两个高斯分布，分别是关于X和Y的高斯分布p(X)和p(Y)，形成p(X,Y)的联合概率分布，然后利用极坐标变换x=rho * sin(theta),y = rho * cos(theta)在极坐标系空间进行求积分，分别得到变量rho和theta的积分结果，即关于rho和theta的概率累积函数，然后对rho和theta进行反变换，再代入到极坐标变换公式即可。这里省略去详细过程，只列出最终结果。<br>
     <div align=center>
-    U1 \~ Uniform(0, 1) <br>
-    U2 \~ Uniform(0, 1) <br>
+    U1 ~ Uniform(0, 1) <br>
+    U2 ~ Uniform(0, 1) <br>
     x = sqrt(-2 * ln(U1)) * sin(2 * pi * U2) <br>
     y = sqrt(-2 * ln(U1)) * cos(2 * pi * U2) <br>
     </div><br>
